@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaLynk | SaaS Pricing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            ✦ NOVALYNK
+        </a>
+
+        <div class="page-label">
+            PRICING SYSTEM / 01
+        </div>
+
+        <a href="../index.html" class="back">
+            ← BACK
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <p class="eyebrow">
+                SUBSCRIPTION CONTROL CENTER
+            </p>
+
+            <h1>
+                SELECT YOUR
+                <span>PLAN.</span>
+            </h1>
+
+            <p>
+                Simple pricing. Powerful features.
+                Choose the system that fits your business.
+            </p>
+
+            <div class="billing-toggle">
+
+                <button id="monthlyBtn" class="active">
+                    MONTHLY
+                </button>
+
+                <button id="yearlyBtn">
+                    YEARLY
+                </button>
+
+                <small>
+                    SAVE 20%
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <section class="pricing-grid">
+
+
+            <!-- ORBIT -->
+
+            <div class="pricing-card">
+
+                <div class="card-code">
+                    PLAN / 01
+                </div>
+
+                <div class="planet blue">
+                    ◉
+                </div>
+
+                <p class="plan-type">
+                    STARTER
+                </p>
+
+                <h2>
+                    ORBIT
+                </h2>
+
+                <p class="description">
+                    Essential tools for individuals
+                    and small teams.
+                </p>
+
+                <div class="price">
+
+                    <span>₹</span>
+
+                    <strong id="orbitPrice">
+                        499
+                    </strong>
+
+                    <small>
+                        / MONTH
+                    </small>
+
+                </div>
+
+                <button
+                    class="select-btn"
+                    onclick="selectPlan('ORBIT')">
+
+                    SELECT ORBIT →
+
+                </button>
+
+                <div class="line"></div>
+
+                <p class="includes">
+                    SYSTEM INCLUDES
+                </p>
+
+                <ul>
+                    <li>✓ 5 team members</li>
+                    <li>✓ 10 invoices / month</li>
+                    <li>✓ Basic analytics</li>
+                    <li>✓ Email support</li>
+                    <li>✓ Secure payments</li>
+                </ul>
+
+            </div>
+
+
+            <!-- NOVA -->
+
+            <div class="pricing-card featured">
+
+                <div class="popular">
+                    MOST POPULAR
+                </div>
+
+                <div class="card-code">
+                    PLAN / 02
+                </div>
+
+                <div class="planet purple">
+                    ◉
+                </div>
+
+                <p class="plan-type">
+                    PROFESSIONAL
+                </p>
+
+                <h2>
+                    NOVA
+                </h2>
+
+                <p class="description">
+                    Advanced billing tools for
+                    growing businesses.
+                </p>
+
+                <div class="price">
+
+                    <span>₹</span>
+
+                    <strong id="novaPrice">
+                        999
+                    </strong>
+
+                    <small>
+                        / MONTH
+                    </small>
+
+                </div>
+
+                <button
+                    class="select-btn"
+                    onclick="selectPlan('NOVA')">
+
+                    SELECT NOVA →
+
+                </button>
+
+                <div class="line"></div>
+
+                <p class="includes">
+                    SYSTEM INCLUDES
+                </p>
+
+                <ul>
+                    <li>✓ 20 team members</li>
+                    <li>✓ Unlimited invoices</li>
+                    <li>✓ Advanced analytics</li>
+                    <li>✓ Priority support</li>
+                    <li>✓ Automated billing</li>
+                </ul>
+
+            </div>
+
+
+            <!-- GALAXY -->
+
+            <div class="pricing-card">
+
+                <div class="card-code">
+                    PLAN / 03
+                </div>
+
+                <div class="planet pink">
+                    ◉
+                </div>
+
+                <p class="plan-type">
+                    ENTERPRISE
+                </p>
+
+                <h2>
+                    GALAXY
+                </h2>
+
+                <p class="description">
+                    Complete billing infrastructure
+                    for large organizations.
+                </p>
+
+                <div class="price">
+
+                    <span>₹</span>
+
+                    <strong id="galaxyPrice">
+                        1999
+                    </strong>
+
+                    <small>
+                        / MONTH
+                    </small>
+
+                </div>
+
+                <button
+                    class="select-btn"
+                    onclick="selectPlan('GALAXY')">
+
+                    SELECT GALAXY →
+
+                </button>
+
+                <div class="line"></div>
+
+                <p class="includes">
+                    SYSTEM INCLUDES
+                </p>
+
+                <ul>
+                    <li>✓ Unlimited members</li>
+                    <li>✓ Unlimited invoices</li>
+                    <li>✓ Custom reports</li>
+                    <li>✓ 24/7 support</li>
+                    <li>✓ API access</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <section class="security">
+
+            <div>
+                <strong>256-BIT</strong>
+                <span>ENCRYPTION</span>
+            </div>
+
+            <div>
+                <strong>99.99%</strong>
+                <span>UPTIME</span>
+            </div>
+
+            <div>
+                <strong>24/7</strong>
+                <span>MONITORING</span>
+            </div>
+
+            <div>
+                <strong>∞</strong>
+                <span>SCALABILITY</span>
+            </div>
+
+        </section>
+
+
+        <section class="faq">
+
+            <p class="eyebrow">
+                FREQUENT QUESTIONS
+            </p>
+
+            <h2>
+                PRICING
+                <span>PROTOCOL.</span>
+            </h2>
+
+            <div class="faq-item">
+                <h3>Can I change my plan?</h3>
+                <p>
+                    Yes. Your subscription can be upgraded
+                    or changed whenever required.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is there a yearly option?</h3>
+                <p>
+                    Yes. Select yearly billing to receive
+                    the displayed annual discount.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Are payments secure?</h3>
+                <p>
+                    Payment information is protected
+                    using secure encryption technology.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div id="toast">
+        PLAN SELECTED ✓
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

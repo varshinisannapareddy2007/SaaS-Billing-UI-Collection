@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Checkout | Novalynk</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">N</span>
+            <span>NOVALYNK</span>
+        </div>
+
+        <div class="secure">
+            <span class="lock">◆</span>
+            SECURE CHECKOUT
+        </div>
+
+        <a href="../index.html" class="back-btn">
+            ← DASHBOARD
+        </a>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="checkout-container">
+
+        <!-- Heading -->
+        <section class="checkout-heading">
+
+            <p class="eyebrow">PAYMENT GATEWAY / 03</p>
+
+            <h1>
+                COMPLETE
+                <span>PAYMENT.</span>
+            </h1>
+
+            <p>
+                Securely activate your Novalynk subscription.
+            </p>
+
+        </section>
+
+
+        <!-- Checkout Layout -->
+        <section class="checkout-grid">
+
+
+            <!-- Left Side -->
+            <div class="payment-panel">
+
+                <div class="panel-title">
+                    <span>01</span>
+                    PAYMENT METHOD
+                </div>
+
+
+                <!-- Payment Options -->
+                <div class="payment-methods">
+
+                    <button class="method active" onclick="selectMethod(this, 'CARD')">
+                        <span class="method-icon">▣</span>
+                        <span>
+                            <strong>CARD</strong>
+                            <small>Credit / Debit</small>
+                        </span>
+                    </button>
+
+                    <button class="method" onclick="selectMethod(this, 'UPI')">
+                        <span class="method-icon">◉</span>
+                        <span>
+                            <strong>UPI</strong>
+                            <small>Instant payment</small>
+                        </span>
+                    </button>
+
+                    <button class="method" onclick="selectMethod(this, 'NET BANKING')">
+                        <span class="method-icon">◇</span>
+                        <span>
+                            <strong>NET BANKING</strong>
+                            <small>All major banks</small>
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <!-- Card Form -->
+                <div id="cardForm" class="form-section">
+
+                    <div class="field">
+
+                        <label>CARDHOLDER NAME</label>
+
+                        <input
+                            type="text"
+                            id="cardName"
+                            placeholder="ENTER FULL NAME"
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>CARD NUMBER</label>
+
+                        <div class="card-input">
+
+                            <input
+                                type="text"
+                                id="cardNumber"
+                                maxlength="19"
+                                placeholder="0000 0000 0000 0000"
+                            >
+
+                            <span>▣</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="field">
+
+                            <label>EXPIRY DATE</label>
+
+                            <input
+                                type="text"
+                                id="expiry"
+                                maxlength="5"
+                                placeholder="MM/YY"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>CVV</label>
+
+                            <input
+                                type="password"
+                                id="cvv"
+                                maxlength="3"
+                                placeholder="•••"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <label class="save-card">
+
+                        <input type="checkbox" checked>
+
+                        <span>
+                            Save payment method for future purchases
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- UPI Form -->
+                <div id="upiForm" class="form-section hidden">
+
+                    <div class="field">
+
+                        <label>UPI ID</label>
+
+                        <input
+                            type="text"
+                            id="upiId"
+                            placeholder="example@upi"
+                        >
+
+                    </div>
+
+                    <div class="upi-info">
+                        <span>◉</span>
+
+                        <p>
+                            Enter your UPI ID and continue.
+                            You will receive a payment request
+                            on your UPI application.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Bank Form -->
+                <div id="bankForm" class="form-section hidden">
+
+                    <div class="field">
+
+                        <label>SELECT BANK</label>
+
+                        <select id="bank">
+
+                            <option value="">SELECT YOUR BANK</option>
+                            <option>State Bank of India</option>
+                            <option>HDFC Bank</option>
+                            <option>ICICI Bank</option>
+                            <option>Axis Bank</option>
+                            <option>Kotak Mahindra Bank</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button class="pay-btn" onclick="processPayment()">
+                    PAY ₹999
+                    <span>→</span>
+                </button>
+
+
+                <div class="security-note">
+                    <span>◆</span>
+                    256-BIT ENCRYPTED • PCI DSS COMPLIANT
+                </div>
+
+            </div>
+
+
+            <!-- Right Side -->
+            <aside class="order-panel">
+
+                <div class="panel-title">
+                    <span>02</span>
+                    ORDER SUMMARY
+                </div>
+
+
+                <div class="plan-preview">
+
+                    <div class="planet">
+                        N
+                    </div>
+
+                    <div>
+                        <span class="plan-label">SELECTED PLAN</span>
+
+                        <h2>NOVA</h2>
+
+                        <p>
+                            Professional subscription
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-lines">
+
+                    <div>
+                        <span>Subscription</span>
+                        <strong>₹999</strong>
+                    </div>
+
+                    <div>
+                        <span>Billing cycle</span>
+                        <strong>Monthly</strong>
+                    </div>
+
+                    <div>
+                        <span>Tax</span>
+                        <strong>₹0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="total">
+
+                    <span>TOTAL</span>
+
+                    <strong>₹999</strong>
+
+                </div>
+
+
+                <div class="features">
+
+                    <p>INCLUDED WITH NOVA</p>
+
+                    <span>✓ Unlimited projects</span>
+                    <span>✓ Advanced analytics</span>
+                    <span>✓ Priority support</span>
+                    <span>✓ Team collaboration</span>
+
+                </div>
+
+
+                <div class="guarantee">
+
+                    <div class="guarantee-icon">✓</div>
+
+                    <div>
+                        <strong>SECURE PAYMENT</strong>
+
+                        <p>
+                            Your payment information is
+                            encrypted and protected.
+                        </p>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- Payment Logos -->
+        <section class="payment-footer">
+
+            <span>SUPPORTED PAYMENTS</span>
+
+            <div>
+                <b>VISA</b>
+                <b>Mastercard</b>
+                <b>UPI</b>
+                <b>RuPay</b>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+
+        <div class="modal-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <p class="success-label">
+                TRANSACTION STATUS
+            </p>
+
+            <h2>
+                PAYMENT
+                <span>SUCCESSFUL.</span>
+            </h2>
+
+            <p>
+                Your NOVA subscription has been activated successfully.
+            </p>
+
+            <button onclick="closeModal()">
+                CONTINUE →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+
+    <footer>
+
+        <span>NOVALYNK / SECURE PAYMENT</span>
+
+        <span>SECURE FINANCIAL SYSTEM © 2026</span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

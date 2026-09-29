@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invoices & Billing History | Novalynk</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">N</span>
+            <span>NOVALYNK</span>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            BILLING ARCHIVE
+        </div>
+
+        <a href="../index.html" class="back-btn">
+            ← DASHBOARD
+        </a>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="invoice-container">
+
+        <!-- Heading -->
+        <section class="hero">
+
+            <div>
+
+                <p class="eyebrow">
+                    FINANCIAL RECORDS / 04
+                </p>
+
+                <h1>
+                    BILLING
+                    <span>ARCHIVE.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Manage invoices, payment records and
+                    subscription history from one place.
+                </p>
+
+            </div>
+
+            <button class="create-btn" onclick="createInvoice()">
+                + CREATE INVOICE
+            </button>
+
+        </section>
+
+
+        <!-- Summary -->
+        <section class="summary-grid">
+
+            <div class="summary-card cyan">
+
+                <div class="summary-icon">▤</div>
+
+                <div>
+                    <p>TOTAL INVOICES</p>
+                    <h2>48</h2>
+                </div>
+
+                <span>THIS YEAR</span>
+
+            </div>
+
+
+            <div class="summary-card purple">
+
+                <div class="summary-icon">₹</div>
+
+                <div>
+                    <p>TOTAL BILLED</p>
+                    <h2>₹4,82,360</h2>
+                </div>
+
+                <span>+16.8%</span>
+
+            </div>
+
+
+            <div class="summary-card green">
+
+                <div class="summary-icon">✓</div>
+
+                <div>
+                    <p>PAID</p>
+                    <h2>42</h2>
+                </div>
+
+                <span>87.5%</span>
+
+            </div>
+
+
+            <div class="summary-card pink">
+
+                <div class="summary-icon">!</div>
+
+                <div>
+                    <p>OUTSTANDING</p>
+                    <h2>₹18,420</h2>
+                </div>
+
+                <span>6 INVOICES</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Toolbar -->
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="invoiceSearch"
+                    placeholder="SEARCH INVOICES..."
+                >
+
+            </div>
+
+
+            <div class="filters">
+
+                <select id="statusFilter">
+
+                    <option value="all">ALL STATUS</option>
+                    <option value="paid">PAID</option>
+                    <option value="pending">PENDING</option>
+                    <option value="overdue">OVERDUE</option>
+
+                </select>
+
+
+                <select id="periodFilter">
+
+                    <option>ALL TIME</option>
+                    <option>2026</option>
+                    <option>2025</option>
+                    <option>2024</option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- Invoice Table -->
+        <section class="invoice-panel">
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <p class="panel-label">
+                        TRANSACTION RECORDS
+                    </p>
+
+                    <h3>
+                        Invoice History
+                    </h3>
+
+                </div>
+
+                <span class="record-count">
+                    48 RECORDS
+                </span>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table id="invoiceTable">
+
+                    <thead>
+
+                        <tr>
+                            <th>INVOICE</th>
+                            <th>DATE</th>
+                            <th>CUSTOMER</th>
+                            <th>PLAN</th>
+                            <th>AMOUNT</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr data-status="paid">
+
+                            <td class="invoice-id">
+                                #INV-10248
+                            </td>
+
+                            <td>
+                                Sep 24, 2026
+                            </td>
+
+                            <td>
+                                Arjun Kumar
+                            </td>
+
+                            <td>
+                                <span class="plan orbit">
+                                    ORBIT
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹499
+                            </td>
+
+                            <td>
+                                <span class="status paid">
+                                    PAID
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    class="download-btn"
+                                    onclick="downloadInvoice('INV-10248')">
+                                    ↓ PDF
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="paid">
+
+                            <td class="invoice-id">
+                                #INV-10247
+                            </td>
+
+                            <td>
+                                Sep 20, 2026
+                            </td>
+
+                            <td>
+                                Priya Sharma
+                            </td>
+
+                            <td>
+                                <span class="plan nova">
+                                    NOVA
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹999
+                            </td>
+
+                            <td>
+                                <span class="status paid">
+                                    PAID
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    class="download-btn"
+                                    onclick="downloadInvoice('INV-10247')">
+                                    ↓ PDF
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="pending">
+
+                            <td class="invoice-id">
+                                #INV-10246
+                            </td>
+
+                            <td>
+                                Sep 17, 2026
+                            </td>
+
+                            <td>
+                                Rahul Verma
+                            </td>
+
+                            <td>
+                                <span class="plan galaxy">
+                                    GALAXY
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹1,999
+                            </td>
+
+                            <td>
+                                <span class="status pending">
+                                    PENDING
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    class="download-btn"
+                                    onclick="downloadInvoice('INV-10246')">
+                                    ↓ PDF
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="paid">
+
+                            <td class="invoice-id">
+                                #INV-10245
+                            </td>
+
+                            <td>
+                                Sep 12, 2026
+                            </td>
+
+                            <td>
+                                Ananya Rao
+                            </td>
+
+                            <td>
+                                <span class="plan nova">
+                                    NOVA
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹999
+                            </td>
+
+                            <td>
+                                <span class="status paid">
+                                    PAID
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    class="download-btn"
+                                    onclick="downloadInvoice('INV-10245')">
+                                    ↓ PDF
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="overdue">
+
+                            <td class="invoice-id">
+                                #INV-10244
+                            </td>
+
+                            <td>
+                                Sep 05, 2026
+                            </td>
+
+                            <td>
+                                Vikram Singh
+                            </td>
+
+                            <td>
+                                <span class="plan orbit">
+                                    ORBIT
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹499
+                            </td>
+
+                            <td>
+                                <span class="status overdue">
+                                    OVERDUE
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    class="download-btn"
+                                    onclick="downloadInvoice('INV-10244')">
+                                    ↓ PDF
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="paid">
+
+                            <td class="invoice-id">
+                                #INV-10243
+                            </td>
+
+                            <td>
+                                Aug 28, 2026
+                            </td>
+
+                            <td>
+                                Sneha Reddy
+                            </td>
+
+                            <td>
+                                <span class="plan galaxy">
+                                    GALAXY
+                                </span>
+                            </td>
+
+                            <td class="amount">
+                                ₹1,999
+                            </td>
+
+                            <td>
+                                <span class="status paid">
+                                    PAID
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    class="download-btn"
+                                    onclick="downloadInvoice('INV-10243')">
+                                    ↓ PDF
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Billing Information -->
+        <section class="bottom-section">
+
+            <div class="info-card">
+
+                <p class="panel-label">
+                    BILLING PROFILE
+                </p>
+
+                <h3>
+                    Company Information
+                </h3>
+
+                <div class="info-lines">
+
+                    <div>
+                        <span>Company</span>
+                        <strong>Novalynk Technologies</strong>
+                    </div>
+
+                    <div>
+                        <span>Email</span>
+                        <strong>billing@novalynk.io</strong>
+                    </div>
+
+                    <div>
+                        <span>Currency</span>
+                        <strong>INR (₹)</strong>
+                    </div>
+
+                </div>
+
+                <button
+                    class="edit-btn"
+                    onclick="editBillingProfile()">
+                    EDIT PROFILE →
+                </button>
+
+            </div>
+
+
+            <div class="info-card activity">
+
+                <p class="panel-label">
+                    PAYMENT ACTIVITY
+                </p>
+
+                <h3>
+                    Recent Status
+                </h3>
+
+                <div class="activity-line">
+
+                    <span class="activity-dot success"></span>
+
+                    <div>
+                        <strong>Invoice #INV-10248 paid</strong>
+                        <small>Today • 10:42 AM</small>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-line">
+
+                    <span class="activity-dot warning"></span>
+
+                    <div>
+                        <strong>Invoice #INV-10246 pending</strong>
+                        <small>Sep 17 • 02:15 PM</small>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-line">
+
+                    <span class="activity-dot danger"></span>
+
+                    <div>
+                        <strong>Invoice #INV-10244 overdue</strong>
+                        <small>Sep 05 • 09:20 AM</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+
+    <footer>
+
+        <span>
+            NOVALYNK / BILLING ARCHIVE
+        </span>
+
+        <span>
+            SECURE FINANCIAL SYSTEM © 2026
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,745 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #030308;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background */
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.04) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        transparent 90%
+    );
+}
+
+.background-grid::after {
+    content: "";
+
+    position: absolute;
+    width: 450px;
+    height: 450px;
+
+    top: 15%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #00ffff;
+
+    filter: blur(180px);
+
+    opacity: 0.07;
+}
+
+
+/* Navbar */
+
+.navbar {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 25px auto;
+
+    padding: 18px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid rgba(0, 255, 255, 0.18);
+
+    background: rgba(5, 5, 12, 0.85);
+
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.logo::first-letter {
+    color: #00ffff;
+}
+
+.page-label {
+    color: #555562;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.back {
+    color: #00ffff;
+
+    text-decoration: none;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.back:hover {
+    text-shadow: 0 0 12px #00ffff;
+}
+
+
+/* Hero */
+
+.hero {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 110px auto 70px;
+
+    text-align: center;
+}
+
+.eyebrow {
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(45px, 7vw, 80px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #00ffff;
+
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 30px rgba(0, 255, 255, 0.5),
+        0 0 60px rgba(0, 255, 255, 0.2);
+}
+
+.hero > p:not(.eyebrow) {
+    max-width: 560px;
+
+    margin: 25px auto;
+
+    color: #777784;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* Billing Toggle */
+
+.billing-toggle {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 25px;
+
+    padding: 5px;
+
+    border: 1px solid #292933;
+
+    background: #09090f;
+}
+
+.billing-toggle button {
+    border: none;
+
+    padding: 10px 18px;
+
+    background: transparent;
+
+    color: #666674;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.billing-toggle button.active {
+    background: #00ffff;
+
+    color: #030308;
+
+    box-shadow:
+        0 0 12px rgba(0, 255, 255, 0.5);
+}
+
+.billing-toggle small {
+    margin-left: 8px;
+    margin-right: 8px;
+
+    color: #ff00aa;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+
+/* Pricing Grid */
+
+.pricing-grid {
+    width: 92%;
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* Pricing Card */
+
+.pricing-card {
+    position: relative;
+
+    padding: 30px;
+
+    min-height: 570px;
+
+    border: 1px solid #25252f;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 15, 24, 0.98),
+            rgba(5, 5, 10, 0.98)
+        );
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.pricing-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background: #00ffff;
+
+    filter: blur(70px);
+
+    opacity: 0.05;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(0, 255, 255, 0.45);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(0, 255, 255, 0.08);
+}
+
+
+/* Featured Card */
+
+.pricing-card.featured {
+    border-color: rgba(0, 255, 255, 0.45);
+
+    box-shadow:
+        0 0 30px rgba(0, 255, 255, 0.08);
+}
+
+.popular {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 8px;
+
+    text-align: center;
+
+    background: #00ffff;
+
+    color: #030308;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* Card Content */
+
+.card-code {
+    color: #484852;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.planet {
+    width: 60px;
+    height: 60px;
+
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    border: 1px solid;
+}
+
+.blue {
+    color: #00ffff;
+
+    border-color: #00ffff;
+
+    box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.35),
+        inset 0 0 15px rgba(0, 255, 255, 0.15);
+}
+
+.purple {
+    color: #9b5cff;
+
+    border-color: #9b5cff;
+
+    box-shadow:
+        0 0 15px rgba(155, 92, 255, 0.35),
+        inset 0 0 15px rgba(155, 92, 255, 0.15);
+}
+
+.pink {
+    color: #ff00aa;
+
+    border-color: #ff00aa;
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 170, 0.35),
+        inset 0 0 15px rgba(255, 0, 170, 0.15);
+}
+
+.plan-type {
+    color: #6b6b78;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.pricing-card h2 {
+    margin-top: 8px;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing: 1px;
+}
+
+.description {
+    min-height: 50px;
+
+    margin-top: 12px;
+
+    color: #70707d;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* Price */
+
+.price {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 3px;
+
+    margin-top: 25px;
+}
+
+.price span {
+    color: #00ffff;
+
+    font-size: 18px;
+}
+
+.price strong {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 38px;
+
+    color: #ffffff;
+}
+
+.price small {
+    color: #5e5e69;
+
+    font-size: 8px;
+}
+
+
+/* Button */
+
+.select-btn {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: 1px solid #00ffff;
+
+    background: transparent;
+
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.select-btn:hover {
+    background: #00ffff;
+
+    color: #030308;
+
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 35px rgba(0, 255, 255, 0.3);
+}
+
+
+/* Features */
+
+.line {
+    height: 1px;
+
+    background: #24242d;
+
+    margin: 28px 0 20px;
+}
+
+.includes {
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    color: #777783;
+
+    font-size: 11px;
+
+    margin-bottom: 13px;
+}
+
+
+/* Security */
+
+.security {
+    width: 92%;
+    max-width: 1100px;
+
+    margin: 100px auto;
+
+    padding: 30px 0;
+
+    border-top: 1px solid #20202a;
+    border-bottom: 1px solid #20202a;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.security div {
+    text-align: center;
+
+    border-right: 1px solid #20202a;
+}
+
+.security div:last-child {
+    border-right: none;
+}
+
+.security strong {
+    display: block;
+
+    color: #00ffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 17px;
+
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.security span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #555560;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+/* FAQ */
+
+.faq {
+    width: 92%;
+    max-width: 850px;
+
+    margin: 120px auto;
+}
+
+.faq > h2 {
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    line-height: 1;
+
+    margin-bottom: 50px;
+}
+
+.faq > h2 span {
+    color: #00ffff;
+}
+
+.faq-item {
+    padding: 25px 0;
+
+    border-top: 1px solid #24242d;
+}
+
+.faq-item h3 {
+    font-size: 15px;
+
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: #70707d;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* Toast */
+
+#toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform: translate(-50%, 100px);
+
+    padding: 13px 22px;
+
+    background: #00ffff;
+
+    color: #030308;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.5);
+
+    opacity: 0;
+
+    transition: 0.4s;
+}
+
+#toast.show {
+    transform: translate(-50%, 0);
+
+    opacity: 1;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+    }
+
+    .pricing-card {
+        min-height: auto;
+    }
+
+    .security {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .security div:nth-child(2) {
+        border-right: none;
+    }
+
+    .security div:nth-child(3),
+    .security div:nth-child(4) {
+        margin-top: 25px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page-label {
+        display: none;
+    }
+
+    .navbar {
+        width: 94%;
+    }
+
+    .hero {
+        margin-top: 80px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .billing-toggle {
+        transform: scale(0.9);
+    }
+
+    .security {
+        width: 90%;
+    }
+
+    .security strong {
+        font-size: 14px;
+    }
+}

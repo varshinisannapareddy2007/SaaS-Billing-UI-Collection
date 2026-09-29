@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Billing Dashboard | Novalynk</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">N</span>
+            <span>NOVALYNK</span>
+        </div>
+
+        <div class="nav-right">
+            <span class="status">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </span>
+
+            <a href="../index.html" class="back-btn">
+                ← DASHBOARD
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+
+        <!-- Welcome -->
+        <section class="welcome">
+
+            <div>
+                <p class="eyebrow">CONTROL CENTER / 2026</p>
+
+                <h1>
+                    BILLING
+                    <span>COMMAND.</span>
+                </h1>
+
+                <p class="subtitle">
+                    Monitor revenue, subscriptions, payments and
+                    financial activity from one intelligent dashboard.
+                </p>
+            </div>
+
+            <button class="export-btn" onclick="exportReport()">
+                EXPORT REPORT ↓
+            </button>
+
+        </section>
+
+
+        <!-- Revenue Cards -->
+        <section class="stats">
+
+            <div class="stat-card cyan">
+                <p>TOTAL REVENUE</p>
+                <h2>₹8,42,650</h2>
+                <span class="positive">↑ 18.4% THIS MONTH</span>
+            </div>
+
+            <div class="stat-card purple">
+                <p>ACTIVE SUBSCRIPTIONS</p>
+                <h2>1,284</h2>
+                <span class="positive">↑ 12.7% THIS MONTH</span>
+            </div>
+
+            <div class="stat-card pink">
+                <p>PENDING PAYMENTS</p>
+                <h2>₹42,380</h2>
+                <span class="warning">12 TRANSACTIONS</span>
+            </div>
+
+            <div class="stat-card green">
+                <p>SUCCESS RATE</p>
+                <h2>98.7%</h2>
+                <span class="positive">↑ 2.1% IMPROVEMENT</span>
+            </div>
+
+        </section>
+
+
+        <!-- Main Content -->
+        <section class="content-grid">
+
+            <!-- Revenue Chart -->
+            <div class="panel chart-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">REVENUE ANALYTICS</p>
+                        <h3>Monthly Revenue</h3>
+                    </div>
+
+                    <select id="chartPeriod">
+                        <option>Last 7 Months</option>
+                        <option>Last 6 Months</option>
+                        <option>Last 3 Months</option>
+                    </select>
+                </div>
+
+                <div class="chart">
+
+                    <div class="y-axis">
+                        <span>₹10L</span>
+                        <span>₹8L</span>
+                        <span>₹6L</span>
+                        <span>₹4L</span>
+                        <span>₹2L</span>
+                        <span>₹0</span>
+                    </div>
+
+                    <div class="chart-area">
+
+                        <div class="line-grid"></div>
+
+                        <svg viewBox="0 0 700 280"
+                             preserveAspectRatio="none">
+
+                            <defs>
+
+                                <linearGradient
+                                    id="areaGradient"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1">
+
+                                    <stop offset="0%" opacity="0.35"/>
+                                    <stop offset="100%" opacity="0"/>
+                                </linearGradient>
+
+                            </defs>
+
+                            <path
+                                class="area"
+                                d="M0,220
+                                   C80,200 90,170 150,185
+                                   C210,200 220,120 290,140
+                                   C360,160 370,90 430,105
+                                   C490,120 500,55 570,70
+                                   C620,80 650,35 700,45
+                                   L700,280
+                                   L0,280 Z"/>
+
+                            <path
+                                class="revenue-line"
+                                d="M0,220
+                                   C80,200 90,170 150,185
+                                   C210,200 220,120 290,140
+                                   C360,160 370,90 430,105
+                                   C490,120 500,55 570,70
+                                   C620,80 650,35 700,45"/>
+
+                        </svg>
+
+                        <div class="months">
+                            <span>MAR</span>
+                            <span>APR</span>
+                            <span>MAY</span>
+                            <span>JUN</span>
+                            <span>JUL</span>
+                            <span>AUG</span>
+                            <span>SEP</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Subscription Breakdown -->
+            <div class="panel breakdown">
+
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-label">SUBSCRIPTIONS</p>
+                        <h3>Plan Breakdown</h3>
+                    </div>
+                </div>
+
+                <div class="donut-wrapper">
+
+                    <div class="donut">
+                        <div>
+                            <strong>1,284</strong>
+                            <span>USERS</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="legend">
+
+                    <div>
+                        <span class="dot orbit"></span>
+                        <span>ORBIT</span>
+                        <strong>42%</strong>
+                    </div>
+
+                    <div>
+                        <span class="dot nova"></span>
+                        <span>NOVA</span>
+                        <strong>36%</strong>
+                    </div>
+
+                    <div>
+                        <span class="dot galaxy"></span>
+                        <span>GALAXY</span>
+                        <strong>22%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Transactions -->
+        <section class="panel transactions">
+
+            <div class="panel-header">
+
+                <div>
+                    <p class="panel-label">RECENT ACTIVITY</p>
+                    <h3>Latest Transactions</h3>
+                </div>
+
+                <button class="view-btn" onclick="viewAllTransactions()">
+                    VIEW ALL →
+                </button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>TRANSACTION</th>
+                            <th>CUSTOMER</th>
+                            <th>PLAN</th>
+                            <th>AMOUNT</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>#NV-90281</td>
+                            <td>Arjun Kumar</td>
+                            <td><span class="plan orbit-plan">ORBIT</span></td>
+                            <td>₹499</td>
+                            <td><span class="paid">PAID</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>#NV-90280</td>
+                            <td>Priya Sharma</td>
+                            <td><span class="plan nova-plan">NOVA</span></td>
+                            <td>₹999</td>
+                            <td><span class="paid">PAID</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>#NV-90279</td>
+                            <td>Rahul Verma</td>
+                            <td><span class="plan galaxy-plan">GALAXY</span></td>
+                            <td>₹1,999</td>
+                            <td><span class="pending">PENDING</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>#NV-90278</td>
+                            <td>Ananya Rao</td>
+                            <td><span class="plan nova-plan">NOVA</span></td>
+                            <td>₹999</td>
+                            <td><span class="paid">PAID</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>#NV-90277</td>
+                            <td>Vikram Singh</td>
+                            <td><span class="plan orbit-plan">ORBIT</span></td>
+                            <td>₹499</td>
+                            <td><span class="failed">FAILED</span></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom Cards -->
+        <section class="bottom-grid">
+
+            <div class="mini-card">
+
+                <span class="mini-icon">↗</span>
+
+                <div>
+                    <p>AVERAGE REVENUE</p>
+                    <h3>₹6,420</h3>
+                </div>
+
+                <span class="mini-change">+8.6%</span>
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <span class="mini-icon">◈</span>
+
+                <div>
+                    <p>NEW CUSTOMERS</p>
+                    <h3>+186</h3>
+                </div>
+
+                <span class="mini-change">+14.2%</span>
+
+            </div>
+
+
+            <div class="mini-card">
+
+                <span class="mini-icon">◎</span>
+
+                <div>
+                    <p>REFUNDS</p>
+                    <h3>₹12,840</h3>
+                </div>
+
+                <span class="mini-change negative">-3.2%</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div id="toast" class="toast">
+        REPORT GENERATED ✓
+    </div>
+
+
+    <footer>
+        <span>NOVALYNK / BILLING COMMAND</span>
+        <span>SECURE FINANCIAL SYSTEM © 2026</span>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
