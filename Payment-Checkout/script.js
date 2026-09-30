@@ -118,11 +118,15 @@ function processPayment() {
 
     if (activeMethod === "CARD") {
 
-        const name =
-            document.getElementById("cardName").value.trim();
+        const email =
+    document.getElementById("customerEmail").value.trim();
 
-        const number =
-            document.getElementById("cardNumber").value.replace(/\s/g, "");
+const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const number =
+    document.getElementById("cardNumber").value.replace(/\s/g, "");
+    
+    .value.replace(/\s/g, "");
 
         const expiryValue =
             document.getElementById("expiry").value.trim();
@@ -130,15 +134,15 @@ function processPayment() {
         const cvvValue =
             document.getElementById("cvv").value.trim();
 
+if (!name || !emailPattern.test(email) ||
+    number.length !== 16 ||
+    expiryValue.length !== 5 ||
+    cvvValue.length !== 3) {
 
-        if (!name || number.length !== 16 ||
-            expiryValue.length !== 5 ||
-            cvvValue.length !== 3) {
+    showToast("PLEASE COMPLETE VALID CARD DETAILS");
 
-            showToast("PLEASE COMPLETE CARD DETAILS");
-
-            return;
-        }
+    return;
+}
     }
 
 
